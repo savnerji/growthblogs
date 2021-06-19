@@ -1,0 +1,119 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <title>About Us</title>
+  <link rel="icon" href="{% static 'images/logo.ico'%}" type="image/x-icon">
+  <meta charset="utf-8" />
+  <meta content="width=device-width, initial-scale=1, shrink-to-fit=no" name="viewport" />
+  <meta name="_token" content="{{csrf_token}}">
+  <link href="https://fonts.googleapis.com/css?family=Poppins:300,400,500,600,700,800,900" rel="stylesheet" />
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  <link href="{% static 'css/open-iconic-bootstrap.min.css' %}" rel="stylesheet" />
+  <link href="{% static 'css/animate.css' %}" rel="stylesheet" />
+  <link href="{% static 'css/owl.carousel.min.css' %}" rel="stylesheet" />
+  <link href="{% static 'css/owl.theme.default.min.css' %}" rel="stylesheet" />
+  <link href="{% static 'css/magnific-popup.css' %}" rel="stylesheet" />
+  <link href="{% static 'css/aos.css' %}" rel="stylesheet" />
+  <link href="{% static 'css/ionicons.min.css' %}" rel="stylesheet" />
+  <link href="{% static 'css/flaticon.css' %}" rel="stylesheet" />
+  <link href="{% static 'css/icomoon.css' %}" rel="stylesheet" />
+  <link href="{% static 'css/style.css' %}" rel="stylesheet" type="text/css" />
+  <link rel="stylesheet" href="{% static 'css/loader.css' %}">
+  <link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css"
+    integrity="sha384-AYmEC3Yw5cVb3ZcuHtOA93w35dYTsvhLPVnYs9eStHfGJvOvKxVfELGroGkvsg+p" crossorigin="anonymous" />
+
+
+</head>
+
+<body>
+{% include "navbar.html" %}
+{% include "modal.html" %}
+
+  
+
+
+
+
+
+  <div class="hero-wrap js-fullheight" data-stellar-background-ratio="0.5"
+    style="background-image: url({% static 'images/backgroundimage.jpg' %});">
+    <div class="overlay"></div>
+    <div class="container">
+      <div class="row no-gutters slider-text js-fullheight align-items-center justify-content-start"
+        data-scrollax-parent="true">
+        <div class="col-md-12 ftco-animate">
+          <h1>About Us</h1>
+        </div>
+      </div>
+    </div>
+  </div>
+
+
+  <section class="ftco-section bg-darkblack">
+
+    <div class="container">
+      <div class="container text-center">
+        <h3 class="text-uppercase text-white">
+          Our Team
+        </h3>
+
+
+        <div class="row mt-5">
+
+          <div class="col-md-6">
+            <div class="container text-center">
+              <div class="card bg-lightblack mt-3 mx-auto" style="width: 18rem;">
+                <img class="card-img-top" src="{% static 'images/suraj_photo.jpeg'%}" alt="Card image cap">
+                <div class="card-body">
+                  <div class="card-text">
+                    <h3 style="color:white">
+                      Suraj Songara
+                    </h3>
+                    <h5 style="color:rgb(116, 214, 18)">(Backend Developer)</h5>
+
+                    <p>
+                      <a href="https://github.com/SurajSongara"><i class="fab fa-github fa-2x mr-2"></i> </a>  
+                      <a href="https://www.linkedin.com/in/surajsongara/"><i class="fab fa-linkedin-in fa-2x mr-2"></i></a>
+                      <a href="mailto:suraj.songara@cdgi.edu.in"><i class="fab fa-google-plus-g fa-2x mr-2"></i></a>       
+                    </p>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="col-md-6">
+            <div class="container text-center">
+              <div class="card bg-lightblack mt-3 mx-auto" style="width: 18rem;">
+                <img class="card-img-top" src="{% static 'images/vaibhav_photo.jpeg'%}" alt="Card image cap">
+                <div class="card-body">
+                  <div class="card-text">
+                    <h3 style="color:white">
+                      Vaibhav Savner
+                    </h3>
+                    <h5 style="color:rgb(116, 214, 18)">(Frontend Developer)</h5>
+                    <p>
+                      <a href="https://github.com/savnerji"><i class="fab fa-github fa-2x mr-2"></i> </a>  
+                      <a href="https://www.linkedin.com/in/vaibhav-savner-17124b195"><i class="fab fa-linkedin-in fa-2x mr-2"></i></a>
+                      <a href="mailto:vaibhavsavner05@gmail.com"><i class="fab fa-google-plus-g fa-2x mr-2"></i></a>               
+                    </p>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+      </div>
+
+  </section>
+
+
+
+
+  {% include "footer.html" %}
+</body>
+
+</html>

@@ -1,0 +1,93 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <title>Edit blog</title>
+  <link rel="icon" href="{% static 'images/logo.ico'%}" type="image/x-icon">
+  <meta charset="utf-8" />
+  <meta content="width=device-width, initial-scale=1, shrink-to-fit=no" name="viewport" />
+  <meta name="_token" content="{{csrf_token}}">
+  <link href="https://fonts.googleapis.com/css?family=Poppins:300,400,500,600,700,800,900" rel="stylesheet" />
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  <link href="{% static 'css/open-iconic-bootstrap.min.css' %}" rel="stylesheet" />
+  <link href="{% static 'css/animate.css' %}" rel="stylesheet" />
+  <link href="{% static 'css/owl.carousel.min.css' %}" rel="stylesheet" />
+  <link href="{% static 'css/owl.theme.default.min.css' %}" rel="stylesheet" />
+  <link href="{% static 'css/magnific-popup.css' %}" rel="stylesheet" />
+  <link href="{% static 'css/aos.css' %}" rel="stylesheet" />
+  <link href="{% static 'css/ionicons.min.css' %}" rel="stylesheet" />
+  <link href="{% static 'css/flaticon.css' %}" rel="stylesheet" />
+  <link href="{% static 'css/icomoon.css' %}" rel="stylesheet" />
+  <link href="{% static 'css/style.css' %}" rel="stylesheet" type="text/css" />
+  <link rel="stylesheet" href="{% static 'css/loader.css' %}">
+
+  <style>
+    #id_heading {
+      width: 100% !important;
+      height: 50px !important;
+    }
+
+    @media screen and (max-device-width: 480px) and (orientation: portrait) {
+      #cke_id_body {
+        position: relative !important;
+        width: fit-content !important;
+      }
+    }
+
+    @media screen and (max-device-width: 640px) and (orientation: landscape) {
+      #cke_id_body {
+        position: relative !important;
+        width: fit-content !important;
+      }
+    }
+  </style>
+
+</head>
+
+<body>
+
+
+{% include "navbar.html" %}
+{% include "modal.html" %}
+
+
+
+
+
+
+  <div class="hero-wrap js-fullheight" data-stellar-background-ratio="0.5"
+    style="background-image: url({% static 'images/backgroundimage.jpg' %});">
+    <div class="overlay"></div>
+    <div class="container">
+      <div class="row no-gutters slider-text js-fullheight align-items-center justify-content-start"
+        data-scrollax-parent="true">
+        <div class="col-md-12 ftco-animate">
+          <h1>Edit Blog</h1>
+        </div>
+      </div>
+    </div>
+
+  </div>
+
+
+  <div class="container-fluid bg-darkblack d-flex justify-content-center">
+    <div class="text mt-4">
+      <form method="POST" class="mt-5" action="{% url 'update_post' slug %}" enctype="multipart/form-data">
+        {% csrf_token %}
+        {{ form.as_p }}
+        <div class="img-fluid">
+          {{form.media}}
+        </div>
+        <div class="container text-center">
+          <button class="links mt-1 mb-4 " type="submit">Update</button>
+        </div>
+      </form>
+    </div>
+  </div>
+
+
+  {% include "footer.html" %}
+</body>
+
+</html>

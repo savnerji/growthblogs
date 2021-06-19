@@ -1,0 +1,263 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+
+
+
+
+<head>
+    <title>Home</title>
+    <link rel="icon" href="{% static 'images/logo.ico'%}" type="image/x-icon">
+    <meta charset="utf-8" />
+    <meta content="width=device-width, initial-scale=1, shrink-to-fit=no" name="viewport" />
+    <meta name="_token" content="{{csrf_token}}">
+    <link href="https://fonts.googleapis.com/css?family=Poppins:300,400,500,600,700,800,900" rel="stylesheet" />
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <link href="{% static 'css/open-iconic-bootstrap.min.css' %}" rel="stylesheet" />
+    <link href="{% static 'css/animate.css' %}" rel="stylesheet" />
+    <link href="{% static 'css/owl.carousel.min.css' %}" rel="stylesheet" />
+    <link href="{% static 'css/owl.theme.default.min.css' %}" rel="stylesheet" />
+    <link href="{% static 'css/magnific-popup.css' %}" rel="stylesheet" />
+    <link href="{% static 'css/aos.css' %}" rel="stylesheet" />
+    <link href="{% static 'css/ionicons.min.css' %}" rel="stylesheet" />
+    <link href="{% static 'css/flaticon.css' %}" rel="stylesheet" />
+    <link href="{% static 'css/icomoon.css' %}" rel="stylesheet" />
+    <link href="{% static 'css/style.css' %}" rel="stylesheet" type="text/css" />
+    <link rel="stylesheet" href="{% static 'css/loader.css' %}">
+
+</head>
+
+<body>
+
+    <div id="loading">
+        <img id="loading-image" src="{% static 'images/ajax-loader.gif' %}" alt="Loading..." />
+    </div>
+
+    {% include "navbar.html" %}
+    {% include "modal.html" %}
+
+    <div class="hero-wrap js-fullheight" data-stellar-background-ratio="0.5"
+        style="background-image: url({% static 'images/backgroundimage.jpg' %});">
+        <div class="overlay"></div>
+        <div class="container">
+            <div class="row no-gutters slider-text js-fullheight align-items-center justify-content-start"
+                data-scrollax-parent="true">
+                <div class="col-md-12 ftco-animate">
+                    <h2 class="subheading">Hello! Welcome to</h2>
+                    <h1 class="mb-4 mb-md-0">Growth blog</h1>
+                    <div class="row">
+                        <div class="col-md-7">
+                            <div class="text">
+                                <p>We will show you the top class blogs that can have a deep impact on your living.
+                                    Choose from our wide category of blogs and have fun reading new stuffs.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+    
+    <section>
+        <div class="container-fluid" style="height: 60px;background: #0a0303;color: red">
+
+            {% if not user.is_authenticated %}
+            <marquee class="pt-3">
+                Login to Add Posts !
+            </marquee>
+            {% else %}
+            <marquee class="pt-3">
+                Stay tuned for new topics !
+            </marquee>
+            {% endif %}
+        </div>
+    </section>
+
+    <!-- start of the posts part -->
+    <section class="ftco-section bg-lightblack">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-4 mt-5 mb-1">
+                    <div class="cat container mt-5 text-center">
+
+                        <div class="container">
+                            <ul class="list-group list-group-flush mt-5">
+                                <li class="list-group-item bg-darkblack">Select your Category</li>
+                                {% for category in all_categories %}
+                                <li class="list-group-item bg-darkblack"><a
+                                        href="{% url 'category' category.category %}">{{category.category}}</a></li>
+                                {% endfor %}
+                            </ul>
+                        </div>
+                    </div>
+
+                </div>
+
+
+                <div class="col-md-8">
+
+                    {% for post in all_posts %}
+
+                    <div class="row bg-darkblack mt-5">
+                        <div class="col-md-6 mt-5" style="padding-left: 0px;">
+                            <a href="{% url 'post_detail' post.slug %}"><img class="img-fluid mt-5"
+                                    src={{post.thumb_url}}
+                                    style="width:100%; max-height:100%; min-height:240px; margin:10px; position :relative;" /></a>
+                        </div>
+
+
+                        <div class="col-md-6">
+                            <div class="container text-center">
+                                <h3 class="text-white mb-3 mt-2">
+                                    <a href="{% url 'post_detail' post.slug %}"
+                                        style="text-decoration: none;">{{post.heading|slice:":40"}}...
+                                    </a>
+                                </h3>
+                            </div>
+
+                            <p class="text-break">
+                                {{post.body|safe|slice:":200"}}
+                            </p>
+                        </div>
+
+                    </div>
+                    <br />
+                    {% endfor %}
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+
+    {% comment %} <section class="ftco-section bg-darkblack">
+
+        <div class="container">
+            <div class="container text-center">
+                <h3 class="text-uppercase text-white">
+                    This are the popular topics
+                </h3>
+
+
+                <div class="row mt-5">
+                    <div class="col-md-6">
+
+                        <div class="bg-lightblack mt-3">
+                            <div class="container text-center">
+                                <h4 class="text-white">tech</h4>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="col-md-6">
+
+                        <div class="bg-lightblack mt-3">
+                            <div class="container text-center">
+                                <h4 class="text-white">tech</h4>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="row">
+                    <div class="col-md-6">
+
+                        <div class="bg-lightblack mt-3">
+                            <div class="container text-center">
+                                <h4 class="text-white">tech</h4>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="col-md-6">
+
+                        <div class="bg-lightblack mt-3">
+                            <div class="container text-center">
+                                <h4 class="text-white">tech</h4>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+
+        </div>
+
+    </section>
+
+    <section class="ftco-section bg-lightblack">
+
+        <div class="container">
+            <div class="row">
+
+                <div class="col-md-6">
+                    <div class="container text-center">
+                        <h2 class="text-white">This are the popular Posts</h2>
+                    </div>
+                </div>
+
+                <div class="col-md-6">
+
+                    <div class="row">
+                        <div class="col-md-6">
+
+                            <div class="bg-darkblack">
+                                <div class="container text-center">
+                                    <h4 class="text-white">tech</h4>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="col-md-6">
+
+                            <div class="bg-darkblack">
+                                <div class="container text-center">
+                                    <h4 class="text-white">tech</h4>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="row">
+                        <div class="col-md-6">
+
+                            <div class="bg-darkblack">
+                                <div class="container text-center">
+                                    <h4 class="text-white">tech</h4>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="col-md-6">
+
+                            <div class="bg-darkblack">
+                                <div class="container text-center">
+                                    <h4 class="text-white">tech</h4>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+
+            </div>
+        </div>
+
+    </section> {% endcomment %}
+
+
+
+    <script>
+        $(window).on('load', function () {
+            $('#loading').hide();
+        });
+    </script>
+
+
+    {% include "footer.html" %}
+
+</body>
+
+</html>

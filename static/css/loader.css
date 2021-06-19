@@ -1,0 +1,28 @@
+#loading {
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+    position: fixed;
+    display: block;
+    opacity: 0.7;
+    background-color: #fff;
+    z-index: 1051;
+    text-align: center;
+    display: none;
+}
+
+#loading-image {
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 15%;
+    margin-bottom: auto;
+    float: none;
+    z-index: 100000;
+}
+
+
+
+#id_heading{
+    width:100% !important;
+}
